@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { postTask } from '../services/addTaskToFirestore'
 
 export default function AuftragsFormular() {
   const [neuerAuftrag, setNeuerAuftrag] = useState({
@@ -20,7 +21,11 @@ export default function AuftragsFormular() {
     console.log(neuerAuftrag.auftragsnummer)
   }
 
-  function handleSubmit() {}
+  function handleSubmit(event) {
+    event.preventDefault()
+    console.log(neuerAuftrag)
+    postTask(neuerAuftrag)
+  }
 
   return (
     <form action="">
